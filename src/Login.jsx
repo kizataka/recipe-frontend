@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import './styles.css';
+import { LoginForm } from './components/LoginForm';
 
-function App() {
+export const Login = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div>
+        <h1>レシピ共有アプリ</h1>
+      </div>
+      <div>
+        <p>ログイン</p>
+      </div>
+      <div className='input-area'>
+        <LoginForm />
+      </div>
+    </>
   );
 }
-
-export default App;
