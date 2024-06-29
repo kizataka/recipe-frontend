@@ -37,3 +37,13 @@ button:hover {
   justify-content: center;
   align-items: center;
 }
+
+.input-area form input[type="image"] {
+  width: 50px;
+  height: 50px;
+}
+
+.button-container {
+  display: flex;
+  gap: 25px;
+}

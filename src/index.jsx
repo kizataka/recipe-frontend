@@ -4,6 +4,7 @@ import './index.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Login } from './Login';
 import { Register } from './Register';
+import { AddDish } from './AddDish';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -13,6 +14,7 @@ root.render(
       <Routes>
         <Route path="/api/login" element={<Login />} />
         <Route path="/api/register" element={<Register />} />
+        <Route path="/api/addDish" element={<AddDish />} />
       </Routes>
     </Router>
   </React.StrictMode>
