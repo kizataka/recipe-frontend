@@ -1,12 +1,11 @@
 import './styles.css';
+import { Header } from './components/Header';
 import { AllDishList } from './components/AllDishList';
 
 export const DishList = () => {
   return (
     <>
-        <div>
-            <h1>レシピ共有アプリ</h1>
-        </div>
+        <Header />
         <div>
             <p>ユーザー登録</p>
         </div>

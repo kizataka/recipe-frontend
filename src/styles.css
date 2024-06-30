@@ -15,14 +15,36 @@ button {
   border: none;
   padding: 4px 16px;
   margin: 0px 2px;
-  background-color: #79a8a9;
-  color: #fff;
+  font-weight: bold;
 }
 
 button:hover {
   background-color: #79a8a9;
   color: #fff;
   cursor: pointer;
+}
+
+.button-container {
+  display: flex;
+  gap: 25px;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px; 
+}
+
+.post-button button{
+  position: fixed;
+  top: 10px;
+  right: 500px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
 }
 
 .input-area form {
@@ -41,11 +63,6 @@ button:hover {
 .input-area form input[type="image"] {
   width: 50px;
   height: 50px;
-}
-
-.button-container {
-  display: flex;
-  gap: 25px;
 }
 
 .description-area {
