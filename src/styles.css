@@ -15,14 +15,36 @@ button {
   border: none;
   padding: 4px 16px;
   margin: 0px 2px;
-  background-color: #79a8a9;
-  color: #fff;
+  font-weight: bold;
 }
 
 button:hover {
   background-color: #79a8a9;
   color: #fff;
   cursor: pointer;
+}
+
+.button-container {
+  display: flex;
+  gap: 25px;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px; 
+}
+
+.post-button button{
+  position: fixed;
+  top: 10px;
+  right: 500px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
 }
 
 .input-area form {
@@ -43,7 +65,43 @@ button:hover {
   height: 50px;
 }
 
-.button-container {
+.description-area {
+  border: 2px solid #aacfd0;
+  width: 400px;
+  min-height: 400px;
+  padding: 8px;
+  margin: 8px;
+  border-radius: 8px;
+  background-color: #c9dede;
+}
+
+.dish-detail-container {
   display: flex;
-  gap: 25px;
+}
+
+.left-side, .right-side {
+  flex: 1;
+  padding: 10px;
+}
+
+.title {
+  text-align: center;
+  margin-top: 0;
+  font-weight: bold;
+}
+
+.user-dish-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 0;
+  list-style: none;
+}
+
+.user-dish-list .description-area {
+  flex: 1 1 calc(50% - 16px);
+  box-sizing: border-box;
+  width: calc(50% - 16px);
+  min-height: 200px;
+  margin: 8px 0;
 }

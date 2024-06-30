@@ -1,12 +1,11 @@
 import './styles.css';
+import { Header } from './components/Header';
 import { RegisterForm } from './components/RegisterForm';
 
 export const Register = () => {
   return (
     <>
-      <div>
-        <h1>レシピ共有アプリ</h1>
-      </div>
+      <Header />
       <div>
         <p>ユーザー登録</p>
       </div>

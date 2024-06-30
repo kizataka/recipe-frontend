@@ -1,9 +1,11 @@
 import './styles.css';
+import { Header } from './components/Header';
 import { LoginForm } from './components/LoginForm';
 
 export const Login = () => {
   return (
     <>
+      <Header />
       <div>
         <h1>レシピ共有アプリ</h1>
       </div>
