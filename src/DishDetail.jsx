@@ -7,11 +7,9 @@ export const DishDetail = () => {
     <>
         <Header />
         <div>
-        <h2>レシピの詳細</h2>
+            <h2>レシピの詳細</h2>
         </div>
-        <div>
         <DishDetailView />
-        </div>
     </>
   );
 }
