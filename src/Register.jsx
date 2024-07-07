@@ -10,7 +10,7 @@ export const Register = () => {
     name: "",
     email: "",
     password: "",
-    passwordConfirmation: ""
+    password_confirmation: ""
   });
   const navigate = useNavigate();
 
