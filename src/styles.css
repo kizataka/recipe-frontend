@@ -10,6 +10,13 @@ input {
   margin: 8px;
 }
 
+textarea {
+  border-radius: 8px;
+  border: none;
+  padding: 6px 30px;
+  margin: 8px;
+}
+
 button {
   border-radius: 8px;
   border: none;
