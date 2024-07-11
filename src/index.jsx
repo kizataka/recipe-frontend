@@ -18,8 +18,8 @@ root.render(
         <Route path="/api/login" element={<Login />} />
         <Route path="/api/register" element={<Register />} />
         <Route path="/api/addDish" element={<AddDish />} />
-        <Route path="/api/dishDetail" element={<DishDetail />} />
-        <Route path="/api/userDetail" element={<UserDetail />} />
+        <Route path="/api/dishDetail/:id" element={<DishDetail />} />
+        <Route path="/api/userDetail/:id" element={<UserDetail />} />
         <Route path="/api/dishList" element={<DishList />} />
       </Routes>
     </Router>
