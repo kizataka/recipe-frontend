@@ -30,10 +30,6 @@ export const DishDetail = () => {
     fetchDishDetail();
   }, [id]);
 
-  const handleEdit = () => {
-    console.log("編集ボタンをクリックしました");
-  }
-
   const handleDelete = async (event) => {
     event.preventDefault();
     const confirmDelete = window.confirm("本当にこのレシピを削除しますか？");
@@ -61,10 +57,10 @@ export const DishDetail = () => {
             <h2>レシピの詳細</h2>
         </div>
         {dish && <DishDetailView dish={dish} />}
-        {user && dish && user.id === dish.user.id && ( // Added this condition
+        {user && dish && user.id === dish.user.id && (
           <ActionButtons
-            handleEdit={handleEdit}
             handleDelete={handleDelete}
+            editLink={`/api/addDish?id=${id}&title=${dish.title}&description=${dish.description}`} // Added id to the edit link
           />
         )}
     </>
