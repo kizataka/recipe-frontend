@@ -1,13 +1,16 @@
-export const UserDishList = () => {
-    const dishes = ["レシピ1", "レシピ2", "レシピ3", "レシピ4"];
-
+export const UserDishList = ({ dishes }) => {
+    if (!Array.isArray(dishes) || dishes.length === 0) {
+        return <p>投稿されたレシピはありません</p>;
+    }
+    
     return (
         <div>
             <h2>過去に投稿したレシピ</h2>
             <ul className="user-dish-list">
                 {dishes.map((dish, index) => (
                     <li key={index} className="description-area">
-                        <p className="title">{dish}</p>
+                        <h3 className="title">{dish.title}</h3>
+                        <img src="https://img.icons8.com/ios/50/000000/image.png" alt="レシピの画像" />
                     </li>
                 ))}
             </ul>
