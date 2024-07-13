@@ -122,3 +122,9 @@ h1 {
   min-height: 200px;
   margin: 8px 0;
 }
+
+.link-wrapper {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
