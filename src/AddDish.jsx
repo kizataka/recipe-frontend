@@ -3,15 +3,19 @@ import { useState, useEffect } from 'react';
 import { Header } from './components/Header';
 import axiosInstance from './axiosConfig';
 import { AddDishForm } from './components/AddDishForm';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 export const AddDish = () => {
-  const [formValues, setFormValues] = useState({
-    title: "",
-    description: "",
-    // image: ""
-  });
   const navigate = useNavigate();
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+
+  const [formValues, setFormValues] = useState({
+    title: queryParams.get('title') || "",
+    description: queryParams.get('description') || "",
+  });
+
+  const isEdit = queryParams.has('id'); // idが存在するかどうかで編集モードを判定
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -35,27 +39,38 @@ export const AddDish = () => {
       return;
     }
     try {
-      const token = localStorage.getItem("token")
-      const response = await axiosInstance.post("/api/dishes", formValues, {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      });
+      const token = localStorage.getItem("token");
+      const response = isEdit
+        ? await axiosInstance.put(`/api/dishes/${queryParams.get('id')}`, formValues, {
+            headers: {
+              Authorization: `Bearer ${token}`
+            }
+          })
+        : await axiosInstance.post("/api/dishes", formValues, {
+            headers: {
+              Authorization: `Bearer ${token}`
+            }
+          });
       if (response.status === 200) {
-        console.log("レシピの登録が完了しました");
-        alert("レシピの登録が完了しました");
+        console.log(isEdit ? "レシピの更新が完了しました" : "レシピの登録が完了しました");
+        alert(isEdit ? "レシピの更新が完了しました" : "レシピの登録が完了しました");
+        navigate(isEdit ? `/api/dishDetail/${queryParams.get('id')}` : "/api/userDetail");
       }
     } catch (error) {
       console.error(error);
-      alert("レシピの登録に失敗しました");
+      alert(isEdit ? "レシピの更新に失敗しました" : "レシピの登録に失敗しました");
     }
+  };
+
+  const handleCancel = () => {
+    navigate(`/api/dishDetail/${queryParams.get('id')}`);
   };
 
   return (
     <>
       <Header />
       <div>
-        <h1>レシピの投稿</h1>
+        <h1>{isEdit ? "レシピの編集" : "レシピの投稿"}</h1>
       </div>
       <div className='input-area'>
         <AddDishForm
@@ -63,6 +78,11 @@ export const AddDish = () => {
           onChange={onChange}
           onSubmit={onSubmit}
         />
+        {isEdit && (
+          <div>
+            <button onClick={handleCancel}>キャンセル</button>
+          </div>
+        )}
       </div>
     </>
   );
