@@ -53,8 +53,9 @@ export const AddDish = () => {
           });
       if (response.status === 200) {
         console.log(isEdit ? "レシピの更新が完了しました" : "レシピの登録が完了しました");
+        console.log(response.data);
         alert(isEdit ? "レシピの更新が完了しました" : "レシピの登録が完了しました");
-        navigate(isEdit ? `/api/dishDetail/${queryParams.get('id')}` : "/api/userDetail");
+        navigate(isEdit ? `/api/dishDetail/${queryParams.get('id')}` : `/api/userDetail/${response.data.user.id}`);
       }
     } catch (error) {
       console.error(error);
@@ -77,12 +78,10 @@ export const AddDish = () => {
           formValues={formValues}
           onChange={onChange}
           onSubmit={onSubmit}
+          isEdit={isEdit}
+          handleCancel={handleCancel}
         />
-        {isEdit && (
-          <div>
-            <button onClick={handleCancel}>キャンセル</button>
-          </div>
-        )}
+
       </div>
     </>
   );
