@@ -1,10 +1,13 @@
 import './styles.css';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axiosInstance from './axiosConfig';
 import { Header } from './components/Header';
 import { LoginForm } from './components/LoginForm';
 
 export const Login = () => {
+  const navigate = useNavigate();
+
   const [formValues, setFormValues] = useState({
     email: "",
     password: ""
@@ -24,7 +27,7 @@ export const Login = () => {
       if (response.status === 200) {
         localStorage.setItem("token", response.data.token);
         console.log("ログインが完了しました");
-        alert("ログインが完了しました");
+        navigate("/api/dishList");
       }
     } catch (error) {
       console.error(error);
