@@ -2,13 +2,10 @@ import './styles.css';
 import { Header } from './components/Header';
 import { useEffect, useState } from 'react';
 import axiosInstance from './axiosConfig';
-import { useNavigate } from 'react-router-dom';
 import { AllDishList } from './components/AllDishList';
 
 export const DishList = () => {
   const [dishes, setDishes] = useState([]);
-
-  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchDishes = async () => {
@@ -26,16 +23,11 @@ export const DishList = () => {
     fetchDishes();
   }, []);
 
-  const onClickDetail = (id) => {
-    navigate(`/api/dishDetail/${id}`);
-  }
-
   return (
     <>
         <Header />
         <AllDishList
           dishes={dishes}
-          onClickDetail={onClickDetail}
         />
     </>
   );
