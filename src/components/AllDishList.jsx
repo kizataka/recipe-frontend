@@ -3,7 +3,6 @@ export const AllDishList = (props) => {
     return (
         <div>
             <h2>すべてのレシピ</h2>
-            <p>ユーザー間でレシピを共有できるアプリです。</p>
             <ul className="user-dish-list">
                 {dishes.map((dish, index) => (
                     <li key={index} className="description-area" onClick={() => onClickDetail(dish.id)}>
