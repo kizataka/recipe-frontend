@@ -39,7 +39,7 @@ export const Register = () => {
     <>
       <Header />
       <div>
-        <p>ユーザー登録</p>
+        <h2>ユーザー登録</h2>
       </div>
       <div className='input-area'>
         <RegisterForm

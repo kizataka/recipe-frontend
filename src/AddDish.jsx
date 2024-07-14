@@ -71,7 +71,7 @@ export const AddDish = () => {
     <>
       <Header />
       <div>
-        <h1>{isEdit ? "レシピの編集" : "レシピの投稿"}</h1>
+        <h2>{isEdit ? "レシピの編集" : "レシピの投稿"}</h2>
       </div>
       <div className='input-area'>
         <AddDishForm
