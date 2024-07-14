@@ -7,7 +7,7 @@ export const UserDishList = ({ dishes }) => {
     
     return (
         <div>
-            <h2>過去に投稿したレシピ</h2>
+            <h3>過去に投稿したレシピ</h3>
             <ul className="user-dish-list">
                 {dishes.map((dish, index) => (
                     <li key={index} className="description-area">
